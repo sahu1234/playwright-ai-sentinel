@@ -1,9 +1,20 @@
-# 🛡️ Playwright AI Sentinel (`playwright-ai-sentinel`)
+# 🛡️ Playwright AI Sentinel
 
-[[https://img.shields.io/badge/Playwright-1.49+-2EAD33?logo=playwright&logoColor=white]](https://playwright.dev/)
-[[https://img.shields.io/badge/TypeScript-Strict-3178C6?logo=typescript&logoColor=white]](https://www.typescriptlang.org/)
-[[https://img.shields.io/github/actions/workflow/status/sahu1234/playwright-ai-sentinel/ai-qa-showcase.yml?branch=main&label=AI%20QA%20Pipeline&logo=github]](https://github.com/sahu1234/playwright-ai-sentinel/actions)
-[[https://img.shields.io/badge/LLM-Ollama%20%7C%20Groq-FF6F00]](https://groq.com/)
+<p align="left">
+  <a href="https://github.com/sahu1234/playwright-ai-sentinel/actions">
+    <img src="https://img.shields.io/github/actions/workflow/status/sahu1234/playwright-ai-sentinel/ai-qa-showcase.yml?branch=main&label=AI%20QA%20Pipeline&logo=github" alt="GitHub Actions" />
+  </a>
+  <a href="https://playwright.dev/">
+    <img src="https://img.shields.io/badge/Playwright-1.49+-2EAD33?logo=playwright&logoColor=white" alt="Playwright" />
+  </a>
+  <a href="https://www.typescriptlang.org/">
+    <img src="https://img.shields.io/badge/TypeScript-Strict-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
+  </a>
+  <a href="https://groq.com/">
+    <img src="https://img.shields.io/badge/LLM-Ollama%20%7C%20Groq-FF6F00" alt="Zero-Cost AI" />
+  </a>
+</p>
+
 
 > **Live Interactive Reports (Auto-Deployed via GitHub Actions):**  
 > 📊 **[View Executive AI Command Center Dashboard](https://sahu1234.github.io/playwright-ai-sentinel/executive-dashboard.html)**  
