@@ -1,8 +1,15 @@
 import { defineConfig, devices } from '@playwright/test';
 import * as dotenv from 'dotenv';
+import * as fs from 'fs';
 import * as path from 'path';
 
 dotenv.config({ path: path.resolve(__dirname, '.env') });
+
+const executiveReporterPath = fs.existsSync(
+  path.resolve(__dirname, 'src/ai/reporters/executiveAiReporter.ts')
+)
+  ? './src/ai/reporters/executiveAiReporter.ts'
+  : './src/reporters/executiveAiReporter.ts';
 
 export default defineConfig({
   testDir: './tests',
@@ -19,7 +26,7 @@ export default defineConfig({
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
     ['json', { outputFile: 'test-results/results.json' }],
     ['junit', { outputFile: 'test-results/junit-results.xml' }],
-    ['./src/reporters/executiveAiReporter.ts'],
+    [executiveReporterPath],
   ],
   use: {
     baseURL: 'https://expandtesting.com',
