@@ -5,11 +5,16 @@ import * as path from 'path';
 
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
-const executiveReporterPath = fs.existsSync(
-  path.resolve(__dirname, 'src/ai/reporters/executiveAiReporter.ts')
-)
-  ? './src/ai/reporters/executiveAiReporter.ts'
-  : './src/reporters/executiveAiReporter.ts';
+const candidateReporterPaths = [
+  './src/reporters/executiveAIReporter.ts',
+  './src/reporters/executiveAiReporter.ts',
+  './src/ai/reporters/executiveAIReporter.ts',
+  './src/ai/reporters/executiveAiReporter.ts',
+];
+
+const resolvedReporter = candidateReporterPaths.find((relPath) =>
+  fs.existsSync(path.resolve(__dirname, relPath))
+);
 
 export default defineConfig({
   testDir: './tests',
@@ -26,7 +31,7 @@ export default defineConfig({
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
     ['json', { outputFile: 'test-results/results.json' }],
     ['junit', { outputFile: 'test-results/junit-results.xml' }],
-    [executiveReporterPath],
+    ...(resolvedReporter ? ([[resolvedReporter]] as const) : []),
   ],
   use: {
     baseURL: 'https://expandtesting.com',
