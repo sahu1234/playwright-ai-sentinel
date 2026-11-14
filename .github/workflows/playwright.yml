@@ -1,0 +1,103 @@
+name: AI-Augmented Playwright QA Showcase
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+jobs:
+  test-and-publish:
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    env:
+      # Seamlessly switches from local Ollama to Groq in CI
+      AI_BASE_URL: ${{ secrets.AI_BASE_URL || 'https://api.groq.com/openai/v1' }}
+      AI_API_KEY: ${{ secrets.AI_API_KEY || '' }}
+      AI_MODEL: ${{ secrets.AI_MODEL || 'llama-3.3-70b-versatile' }}
+      AI_HEAL: 'true'
+      PRACTICE_ORIGIN: 'https://practice.expandtesting.com'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium browser
+        run: npx playwright install --with-deps chromium
+
+      - name: TypeScript compile check
+        run: npm run typecheck
+
+      - name: Run Playwright AI Sentinel Suite
+        continue-on-error: true
+        run: npx playwright test
+
+      - name: Append AI Healing & Bug Triage Summary to GitHub Step Summary
+        if: always()
+        run: |
+          echo "## 🤖 AI-Augmented QA Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- **Inference Provider:** \`${AI_BASE_URL}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Model:** \`${AI_MODEL}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f "healing-logs/healed-selectors.json" ]; then
+            echo "### 🩹 Self-Healed Selectors Log" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`json" >> $GITHUB_STEP_SUMMARY
+            cat healing-logs/healed-selectors.json >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -f "healing-logs/latest-bug-triage.md" ]; then
+            echo "### 🐛 Automated AI Bug Triage Report" >> $GITHUB_STEP_SUMMARY
+            cat healing-logs/latest-bug-triage.md >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Bundle Healing Logs into HTML Report Directory
+        if: always()
+        run: |
+          mkdir -p playwright-report/healing-logs
+          cp -r healing-logs/* playwright-report/healing-logs/ || true
+
+      - name: Upload Playwright HTML Report Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-ai-report
+          path: playwright-report/
+          retention-days: 14
+
+      - name: Configure GitHub Pages
+        if: always() && (github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch')
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages Artifact
+        if: always() && (github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch')
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'playwright-report'
+
+      - name: Deploy Report to GitHub Pages
+        id: deployment
+        if: always() && (github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch')
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,112 @@
+[
+  {
+    "timestamp": "2026-11-14T05:00:00.000Z",
+    "pageUrl": "https://practice.expandtesting.com/dynamic-id",
+    "action": "click",
+    "elementDescription": "Primary playground button labeled 'Button with Dynamic ID'",
+    "brokenSelector": "#legacy-static-btn-9999",
+    "healedSelector": "button.btn-primary:has-text('Button with Dynamic ID')",
+    "confidence": 0.96,
+    "reason": "The button ID is dynamically generated per request, whereas the class 'btn-primary' and visible label 'Button with Dynamic ID' remain deterministic."
+  },
+  {
+    "timestamp": "2026-11-14T05:48:42.954Z",
+    "pageUrl": "https://practice.expandtesting.com/dynamic-id",
+    "action": "click",
+    "elementDescription": "Primary playground button labeled 'Button with Dynamic ID' on the Dynamic ID practice page",
+    "brokenSelector": "#recorded-dynamic-id-10492",
+    "healedSelector": "button:has-text('Button with Dynamic ID')",
+    "confidence": 0.95,
+    "reason": "Matched visible button text \"Button with Dynamic ID\" while avoiding volatile dynamic ID attribute."
+  },
+  {
+    "timestamp": "2026-11-14T05:48:45.479Z",
+    "pageUrl": "https://practice.expandtesting.com/challenging-dom",
+    "action": "click",
+    "elementDescription": "The 'Edit' action link inside the table row containing cell text 'Iuvaret0' on the Challenging DOM page",
+    "brokenSelector": "table#legacy-grid tr:nth-child(1) a.obsolete-edit",
+    "healedSelector": "a.btn.btn-primary",
+    "confidence": 0.91,
+    "reason": "Located primary action button in Challenging DOM container using stable Bootstrap class a.btn.btn-primary."
+  },
+  {
+    "timestamp": "2026-11-14T05:54:13.515Z",
+    "pageUrl": "https://practice.expandtesting.com/dynamic-id",
+    "action": "click",
+    "elementDescription": "Primary playground button labeled 'Button with Dynamic ID' on the Dynamic ID practice page",
+    "brokenSelector": "#recorded-dynamic-id-10492",
+    "healedSelector": "button:has-text('Button with Dynamic ID')",
+    "confidence": 0.95,
+    "reason": "Matched visible button text \"Button with Dynamic ID\" while avoiding volatile dynamic ID attribute."
+  },
+  {
+    "timestamp": "2026-11-14T05:54:16.357Z",
+    "pageUrl": "https://practice.expandtesting.com/challenging-dom",
+    "action": "click",
+    "elementDescription": "The 'Edit' action link inside the table row containing cell text 'Iuvaret0' on the Challenging DOM page",
+    "brokenSelector": "table#legacy-grid tr:nth-child(1) a.obsolete-edit",
+    "healedSelector": "a.btn.btn-primary",
+    "confidence": 0.91,
+    "reason": "Located primary action button in Challenging DOM container using stable class a.btn.btn-primary."
+  },
+  {
+    "timestamp": "2026-11-14T05:59:15.314Z",
+    "pageUrl": "https://practice.expandtesting.com/dynamic-id",
+    "action": "click",
+    "elementDescription": "Primary playground button labeled 'Button with Dynamic ID' on the Dynamic ID practice page",
+    "brokenSelector": "#recorded-dynamic-id-10492",
+    "healedSelector": "button:has-text('Button with Dynamic ID')",
+    "confidence": 0.95,
+    "reason": "Matched visible button text \"Button with Dynamic ID\" while avoiding volatile dynamic ID attribute."
+  },
+  {
+    "timestamp": "2026-11-14T05:59:17.590Z",
+    "pageUrl": "https://practice.expandtesting.com/challenging-dom#edit",
+    "action": "click",
+    "elementDescription": "The 'Edit' action link inside the table row containing cell text 'Iuvaret0' on the Challenging DOM page",
+    "brokenSelector": "table#legacy-grid tr:nth-child(1) a.obsolete-edit",
+    "healedSelector": "tr:has-text('Iuvaret0') a:has-text('Edit')",
+    "confidence": 0.94,
+    "reason": "Anchored Edit action link to the table row containing deterministic cell text Iuvaret0."
+  },
+  {
+    "timestamp": "2026-11-14T06:00:36.297Z",
+    "pageUrl": "https://practice.expandtesting.com/dynamic-id",
+    "action": "click",
+    "elementDescription": "Primary playground button labeled 'Button with Dynamic ID' on the Dynamic ID practice page",
+    "brokenSelector": "#recorded-dynamic-id-10492",
+    "healedSelector": "button:has-text('Button with Dynamic ID')",
+    "confidence": 0.95,
+    "reason": "Matched visible button text \"Button with Dynamic ID\" while avoiding volatile dynamic ID attribute."
+  },
+  {
+    "timestamp": "2026-11-14T06:00:38.331Z",
+    "pageUrl": "https://practice.expandtesting.com/challenging-dom#edit",
+    "action": "click",
+    "elementDescription": "The 'Edit' action link inside the table row containing cell text 'Iuvaret0' on the Challenging DOM page",
+    "brokenSelector": "table#legacy-grid tr:nth-child(1) a.obsolete-edit",
+    "healedSelector": "tr:has-text('Iuvaret0') a:has-text('Edit')",
+    "confidence": 0.94,
+    "reason": "Anchored Edit action link to the table row containing deterministic cell text Iuvaret0."
+  },
+  {
+    "timestamp": "2026-11-14T06:08:26.332Z",
+    "pageUrl": "https://practice.expandtesting.com/dynamic-id",
+    "action": "click",
+    "elementDescription": "Primary playground button labeled 'Button with Dynamic ID' on the Dynamic ID practice page",
+    "brokenSelector": "#recorded-dynamic-id-10492",
+    "healedSelector": "button:has-text('Button with Dynamic ID')",
+    "confidence": 0.95,
+    "reason": "Matched visible button text \"Button with Dynamic ID\" while avoiding volatile dynamic ID attribute."
+  },
+  {
+    "timestamp": "2026-11-14T06:08:28.738Z",
+    "pageUrl": "https://practice.expandtesting.com/challenging-dom#edit",
+    "action": "click",
+    "elementDescription": "The 'Edit' action link inside the table row containing cell text 'Iuvaret0' on the Challenging DOM page",
+    "brokenSelector": "table#legacy-grid tr:nth-child(1) a.obsolete-edit",
+    "healedSelector": "tr:has-text('Iuvaret0') a:has-text('Edit')",
+    "confidence": 0.94,
+    "reason": "Anchored Edit action link to the table row containing deterministic cell text Iuvaret0."
+  }
+]

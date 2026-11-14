@@ -1,0 +1,29 @@
+{
+  "name": "qa-playrwight-ai-project-",
+  "version": "1.0.0",
+  "description": "AI-Augmented Playwright TypeScript QA Automation Framework with Self-Healing Locators, Semantic LLM-as-a-Judge Assertions, Persona Fuzzing, and Automated Failure Triage.",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:heal": "AI_HEAL=true playwright test",
+    "test:self-healing": "AI_HEAL=true playwright test tests/self-healing.spec.ts",
+    "test:fuzzing": "playwright test tests/ai-fuzzing.spec.ts",
+    "test:hybrid": "playwright test tests/hybrid-api-ui.spec.ts",
+    "test:triage": "playwright test tests/failure-triage.spec.ts",
+    "report": "playwright show-report",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "openai": "^4.73.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "typescript": "^5.7.2"
+  }
+}
