@@ -1,9 +1,10 @@
 # 🛡️ Playwright AI Sentinel
 
 <p align="left">
-  <a href="https://github.com/sahu1234/playwright-ai-sentinel/actions">
-    <img src="https://img.shields.io/github/actions/workflow/status/sahu1234/playwright-ai-sentinel/ai-qa-showcase.yml?branch=main&label=AI%20QA%20Pipeline&logo=github" alt="GitHub Actions" />
-  </a>
+  <a href="https://github.com/sahu1234/playwright-ai-sentinel/actions/workflows/playwright.yml">
+  <img src="https://github.com/sahu1234/playwright-ai-sentinel/actions/workflows/playwright.yml/badge.svg"
+       alt="AI-Augmented Playwright QA Showcase" />
+</a>
   <a href="https://playwright.dev/">
     <img src="https://img.shields.io/badge/Playwright-1.49+-2EAD33?logo=playwright&logoColor=white" alt="Playwright" />
   </a>
