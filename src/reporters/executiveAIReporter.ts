@@ -8,11 +8,6 @@ import type {
 } from '@playwright/test/reporter';
 import * as fs from 'fs';
 import * as path from 'path';
-const executiveReporterPath = fs.existsSync(
-  path.resolve(__dirname, 'src/ai/reporters/executiveAiReporter.ts')
-)
-  ? './src/ai/reporters/executiveAiReporter.ts'
-  : './src/reporters/executiveAiReporter.ts';
 
 interface TestSummaryRow {
   title: string;
