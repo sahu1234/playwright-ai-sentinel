@@ -21,6 +21,10 @@
 > 📊 **[View Executive AI Command Center Dashboard](https://sahu1234.github.io/playwright-ai-sentinel/executive-dashboard.html)**  
 > 🔍 **[View Deep-Dive Playwright Trace & HTML Report](https://sahu1234.github.io/playwright-ai-sentinel/)**
 
+
+<img width="1376" height="768" alt="playwright Ai" src="https://github.com/user-attachments/assets/249a9e6c-4148-4c6b-9719-f5c113003278" />
+
+
 An enterprise-grade, **Zero-Cost AI-Augmented QA Automation Framework** built with **Playwright + TypeScript** targeting [ExpandTesting](https://practice.expandtesting.com/). Designed to showcase practical, production-safe AI patterns in end-to-end testing without recurring SaaS or token bills.
 
 ## ✨ Core Capabilities
